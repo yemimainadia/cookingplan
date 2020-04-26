@@ -88,7 +88,7 @@ img {
     margin: auto;
     text-align: center;
     width: 100%;
-    display: none;
+    display: block;
 }
 
 .form-signin .form-control {
@@ -126,7 +126,7 @@ img {
 }
 
 .dashboard-cooking {
-    display: block;
+    display: none;
     width: 100%;
 }
 
@@ -142,4 +142,42 @@ img {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+.recipe-title {
+    text-transform: capitalize;
+    font-family: 'Kreon', serif;
+    color: rgb(59, 58, 58);
+    font-weight: bold;
+    letter-spacing: 0.03em;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.detail-recipe img {
+    width: 60%;
+    margin: 0 auto;
+    display: block;
+}
+
+h3 {
+    margin-top: 50px;
+    font-family: 'Satisfy', cursive;
+    color: rgb(56, 56, 56);
+    font-size: 36px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid olivedrab;
+}
+
+.steps .field__item {
+    margin-left: 30px;
+}
+
+.steps h3 {
+    margin-left: 30px;
+}
+
+.field__item {
+    padding-top: 20px;
+    font-family: 'Kreon', serif;
 }

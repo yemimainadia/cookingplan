@@ -54,12 +54,15 @@ $(document).ready(function() {
             $.ajax(settings).done(function(response) {
                 console.log(response);
                 var component = '<div class="col-md-12">' +
+                    '<h1 class="recipe-title">' + response['recipe_title'] + '</h1>' +
                     '<img src="' + response['recipe_poster_url'] + '" alt="" />' +
                     '</div>' +
                     '<div class="col-md-12">' +
-                    '<div class="col-md-6 ingr">' + response['recipe_ingredients'] +
+                    '<div class="row">' +
+                    '<div class="col-md-6 ingr"><h3>Ingredients</h3>' + response['recipe_ingredients'] +
                     '</div>' +
-                    '<div class="col-md-6 steps">' + response['recipe_steps'] +
+                    '<div class="col-md-6 steps"><h3>Steps</h3>' + response['recipe_steps'] +
+                    '</div>' +
                     '</div>' +
                     '</div>';
                 $('.detail-recipe .row').append(component);
