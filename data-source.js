@@ -76,8 +76,6 @@ $(document).ready(function() {
 
 
 
-
-
     //validate customer when login
     $('.btn-signin').on('click', function() {
         var userName = $('#inputUsername').val();
@@ -112,4 +110,61 @@ $(document).ready(function() {
         return false;
     });
 
+
+    $('a.signup').on('click', function() {
+        $('.form-signin').css('display', 'none');
+        $('.form-signup').css('display', 'block');
+
+
+        // waktu user klik signup, akan dicek dulu username yg diinput sama gak sm yg di database
+        $('.btn-signup').on('click', function() {
+            var userName = $('#inputUsernameSignup').val();
+            var password = $('#inputPasswordSignup').val();
+
+            //pake json supaya bisa ambil data yg formatnya string/teks 
+            var jsonUsername = JSON.stringify({ "username": userName });
+            var settings = {
+                    "async": true,
+                    "crossDomain": true,
+                    "url": "https://cookey-8f6f.restdb.io/rest/customer?q=" + jsonUsername,
+                    "method": "GET", //method GET krn mau cek dulu username nya udh ada apa blm
+                    "headers": {
+                        "content-type": "application/json",
+                        "x-apikey": keyApi,
+                        "cache-control": "no-cache"
+                    }
+                }
+                //minta respon dr server apakah username yg diinput udh ada apa blm
+            $.ajax(settings).done(function(response) {
+                //klo udh ada tampilin pesan error
+                if (response.length > 0) {
+                    $('.signup-error-alert').css('display', 'block');
+                } else { //kalo belum ada, data langsung terinput ke database
+                    var jsondata = { "username": userName, "password": password };
+                    var settings = {
+                        "async": true,
+                        "crossDomain": true,
+                        "url": "https://cookey-8f6f.restdb.io/rest/customer",
+                        "method": "POST",
+                        "headers": {
+                            "content-type": "application/json",
+                            "x-apikey": keyApi,
+                            "cache-control": "no-cache"
+                        },
+                        "processData": false,
+                        "data": JSON.stringify(jsondata)
+                    }
+
+                    $.ajax(settings).done(function(response) {
+                        //pas selesai, balik ke halaman sign in
+                        $('.form-signin').css('display', 'block');
+                        $('.form-signup').css('display', 'none');
+                        // terus kasih alert kalo udah registered
+                        alert('Your are registered! You can sign in now');
+                    });
+                }
+            });
+            return false;
+        });
+    });
 });

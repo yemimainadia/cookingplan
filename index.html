@@ -26,7 +26,7 @@
 
         <!-- Error Message -->
         <div class="alert alert-danger alert-dismissible fade show login-error-alert" role="alert">
-            <strong>WOIII!</strong> Kombinasi Username dan atau Password Salah!
+            <strong>Username and or password missmatch!</strong>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -37,6 +37,30 @@
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
         <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+        <a href="javascript:;" class="signup">Start Cooking with Us</a>
+        <p class="mt-5 mb-3 text-muted">©Cookey 2020</p>
+    </form>
+    <!-- ENDOF Login -->
+
+    <!-- Sign Up -->
+    <form class="form-signup">
+        <img class="mb-4 logo" src="assets/logo_transparent.png" alt="">
+
+        <!-- Error Message -->
+        <div class="alert alert-danger alert-dismissible fade show signup-error-alert" role="alert">
+            <strong>Username already exists. Input different one!</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!-- END of Error Message -->
+
+        <label for="inputUsernameSignup" class="sr-only">Username</label>
+        <input type="text" id="inputUsernameSignup" class="form-control" placeholder="New Username" required="" autofocus="">
+        <label for="inputPasswordSignup" class="sr-only">Password</label>
+        <input type="password" id="inputPasswordSignup" class="form-control" placeholder="Password" required="">
+        <button class="btn btn-lg btn-primary btn-block btn-signup" type="submit">Sign Up</button>
+        <a href="javascript:;" class="sign in">Already have an account? Sign In Here</a>
         <p class="mt-5 mb-3 text-muted">©Cookey 2020</p>
     </form>
     <!-- ENDOF Login -->
