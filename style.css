@@ -7,6 +7,10 @@ body {
     padding-bottom: 40px;
 }
 
+img {
+    width: 100%;
+}
+
 .banner {
     width: 100%;
 }
@@ -121,12 +125,13 @@ body {
     display: none;
 }
 
-body.dashboard-shown .form-signin {
-    display: none !important;
-}
-
 .dashboard-cooking {
     display: block;
+    width: 100%;
+}
+
+.detail-recipe {
+    display: none;
     width: 100%;
 }
 
