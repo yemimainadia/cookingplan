@@ -176,6 +176,7 @@ h3 {
     font-size: 36px;
     padding-bottom: 15px;
     border-bottom: 2px solid olivedrab;
+    display: inline-block;
 }
 
 .steps .field__item {
