@@ -1,0 +1,20 @@
+konsep awal
+kendala pake database nya mas tata (postman)
+googling: database online yang nyediain rest api nya jg yg free
+nemu dbrest.io
+
+0. pake bootstrap utk theme nya
+1. pertama login. get dari tabel customer di db (pake method get)
+2. registrasi. get dulu dari tabel customer, 
+   username yg diinput udh ada/belum, 
+   kalo udah ada tampilin notif eror. 
+   kalo belum add data pake POST METHOD. tampilin notif:
+   data berhasil dibuat.
+3. kalo udah bisa login, nge get data dari tabel recipe yg di tgl 27.
+4. tampilin pake append. 
+5. cust jg bs liat detail resep. tekan tombol view. pake method GET
+   dari tabel recipe berdasarkan id resep yg dipilih.
+6. delete method nya, nge hapus resep di tombol not interested.
+   berdasarkan id resep. caranya sm kyk view resep
+   bedanya methodnya aja.
+   
