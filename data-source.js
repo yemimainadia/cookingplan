@@ -26,6 +26,7 @@ $(document).ready(function() {
                     '<div class="d-flex justify-content-between align-items-center">' +
                     '<div class="btn-group">' +
                     '<button type="button" class="btn btn-sm btn-outline-secondary btn-view" data-recipeID="' + value['_id'] + '">View</button>' +
+                    '<button type="button" class="btn-delete" data-recipeID="' + value['_id'] + '">Not Interested</button>' +
                     '</div>' +
                     '<small class="text-muted">' + value['recipe_time'] + '</small>' +
                     '</div>' +
@@ -72,6 +73,29 @@ $(document).ready(function() {
             });
         });
 
+        // delete yang dipilih kalo not interested
+        $('.btn-delete').on('click', function() {
+            //pake this biar ga ke button yg lain tp ke button yg diplih
+            var recipeID = $(this).attr('data-recipeID');
+            var columnImg = $(this).closest('.col-md-4'); //closest berarti sampe ke parent paling atas
+
+            var settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": "https://cookey-8f6f.restdb.io/rest/recipe/" + recipeID, //tambah recipeID biar langsung delete ke ID yg diminta,
+                "method": "DELETE",
+                "headers": {
+                    "content-type": "application/json",
+                    "x-apikey": keyApi,
+                    "cache-control": "no-cache"
+                }
+            }
+
+            $.ajax(settings).done(function(response) {
+                columnImg.remove();
+            });
+        });
+
         // tampilkan data resep berdasarkan tanggal yang dipilih
         $('.dropdown-item').on('click', function() {
             var scheduleDate = $(this).attr('data-value');
@@ -104,6 +128,7 @@ $(document).ready(function() {
                         '<div class="d-flex justify-content-between align-items-center">' +
                         '<div class="btn-group">' +
                         '<button type="button" class="btn btn-sm btn-outline-secondary btn-view" data-recipeID="' + value['_id'] + '">View</button>' +
+                        '<button type="button" class="btn-delete" data-recipeID="' + value['_id'] + '">Not Interested</button>' +
                         '</div>' +
                         '<small class="text-muted">' + value['recipe_time'] + '</small>' +
                         '</div>' +
@@ -148,6 +173,30 @@ $(document).ready(function() {
                         $('.dashboard-cooking').css('display', 'none');
                         $('.detail-recipe').css('display', 'block');
 
+                    });
+                });
+
+                // delete yang dipilih kalo not interested
+                // copas line #76
+                $('.btn-delete').on('click', function() {
+                    //pake this biar ga ke button yg lain tp ke button yg diplih
+                    var recipeID = $(this).attr('data-recipeID');
+                    var columnImg = $(this).closest('.col-md-4'); //closest berarti sampe ke parent paling atas
+
+                    var settings = {
+                        "async": true,
+                        "crossDomain": true,
+                        "url": "https://cookey-8f6f.restdb.io/rest/recipe/" + recipeID, //tambah recipeID biar langsung delete ke ID yg diminta,
+                        "method": "DELETE",
+                        "headers": {
+                            "content-type": "application/json",
+                            "x-apikey": keyApi,
+                            "cache-control": "no-cache"
+                        }
+                    }
+
+                    $.ajax(settings).done(function(response) {
+                        columnImg.remove();
                     });
                 });
             })
